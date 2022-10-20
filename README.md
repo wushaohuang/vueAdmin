@@ -1,6 +1,10 @@
 # vueadmin
 
-This is an empty project of VUE2. When your computer cannot generate it, it will be very useful.
+[Online Demo](https://www.markerhub.com/vueadmin/login)
+
+[Front notes](https://www.zhuawaba.com/post/18)
+
+[Guidelines for avoiding stepping on pits](https://blog.csdn.net/qq_19754259/article/details/127335407?spm=1001.2014.3001.5502)
 
 ## Project setup
 ```
