@@ -8,6 +8,12 @@ let Result = {
     data: null
 }
 
+Mock.mock(RegExp('/login*'),'get', (config) => {
+    console.log("mock---------------------------------------login")
+    return Result
+})
+
+
 Mock.mock('/captcha','get',() => {
     Result.data = {
         token: Random.string(32),
