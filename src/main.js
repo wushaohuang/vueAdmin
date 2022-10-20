@@ -5,6 +5,7 @@ import store from './store'
 import Element from 'element-ui'
 import "element-ui/lib/index.js"
 import axios from 'axios'
+import 'element-theme-chalk';
 
 Vue.use(Element)
 Vue.prototype.$axios = axios

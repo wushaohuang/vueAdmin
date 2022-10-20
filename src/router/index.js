@@ -14,6 +14,11 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/',
+    name: 'Login',
+    component: Login
   }
 ]
 
