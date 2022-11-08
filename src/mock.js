@@ -17,7 +17,7 @@ Mock.mock(RegExp('/login*'),'get', (config) => {
 Mock.mock('/captcha','get',() => {
     Result.data = {
         token: Random.string(32),
-        captchaImg: Random.dataImage("120*40","1111")
+        captchaImg: Random.dataImage("120x40","1111")
     }
     return Result
 })
