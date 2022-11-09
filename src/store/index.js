@@ -5,8 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    token: ''
   },
   mutations: {
+    SET_TOKEN: (state, token) => {
+      state.token = token
+      localStorage.setItem("token",token) /* 将token存储到token字段 */
+      /* localStorage.getItem("key") 获取指定key本地存储的值 */
+    }
   },
   actions: {
   },

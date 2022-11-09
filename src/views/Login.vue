@@ -1,3 +1,22 @@
+<!--
+2022-11-09 [早] 学到的东西
+$axios是ajax封装的库，用于异步请求接口数据，
+$refs 用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例。ref 需要在dom渲染完成后才会有，在使用的时候确保dom已经渲染完成。比如在生命周期 mounted(){} 钩子中调用，或者在 this.$nextTick(()=>{}) 中调用。可通过[ this.$refs.标签的ref ]获取指定标签带着的数据
+$store 状态管理有5个核心，分别是state、getter、mutation、action以及module；
+localStorage.setItem("token",token) /* 将token存储到token字段 */
+this.$router.push("/index")相当于a标签跳转，会跳转到指定路径
+axios特点: （开始请求 -> 请求拦截器 -> 响应拦截器 -> 请求结束）
+  · 基于promise的异步ajax请求库
+    · axios(config)	通用/最本质的发任意类型请求的方式
+  · 浏览器端/node端都可以使用
+  · 支持请求/响应拦截器
+    · axios.interceptors.request.use()	添加请求拦截器
+    · axios.interceptors.response.use()	添加响应拦截器
+  · 支持请求取消
+    · axios.Cancel()	用于创建取消请求的错误对象
+  · 请求/响应数据转换
+  · 批量发送多个请求
+-->
 <template>
   <!-- type="flex" justify="center" 令el-row居中 -->
   <el-row type="flex" justify="center" class="row-bg">
@@ -93,8 +112,6 @@ export default {
     },
     getCaptcha() {
       this.$axios.get('/captcha').then(res => {
-        console.log('res')
-        console.log(res)
         this.loginForm.token = res.data.token
         this.captchaImg = res.data.data.captchaImg
       })
