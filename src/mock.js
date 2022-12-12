@@ -24,32 +24,58 @@ Mock.mock('/captcha','get',() => {
 Mock.mock('/sys/menu/nav', 'get', () => {
     let nav = [
         {
-            name: 'SysManga',
-            title: '系统管理',
-            icon: 'el-icon-s-operation',
-            path: '',
-            component: '',
-            children: [
+            "id": 1,
+            "title": "系统管理",
+            "icon": "el-icon-s-operation",
+            "path": "",
+            "name": "sys:manage",
+            "component": "",
+            "children": [
                 {
-                    name: 'SysUser',
-                    title: '用户管理',
-                    icon: 'el-icon-s-custom',
-                    children: []
+                    "id": 2,
+                    "title": "用户管理",
+                    "icon": "el-icon-s-custom",
+                    "path": "/sys/users",
+                    "name": "sys:user:list",
+                    "component": "sys/User",
+                    "children": []
+                },
+                {
+                    "id": 3,
+                    "title": "角色管理",
+                    "icon": "el-icon-rank",
+                    "path": "/sys/roles",
+                    "name": "sys:role:list",
+                    "component": "sys/Role",
+                    "children": []
+                },
+                {
+                    "id": 4,
+                    "title": "菜单管理",
+                    "icon": "el-icon-menu",
+                    "path": "/sys/menus",
+                    "name": "sys:menu:list",
+                    "component": "sys/Menu",
+                    "children": []
                 }
             ]
         },
         {
-            name: 'SysTools',
-            title: '系统工具',
-            icon: 'el-icon-s-tools',
-            path: '',
-            children: [
+            "id": 5,
+            "title": "系统工具",
+            "icon": "el-icon-s-tools",
+            "path": "",
+            "name": "sys:tools",
+            "component": null,
+            "children": [
                 {
-                    name: 'SysDict',
-                    title: '数字字典',
-                    icon: 'el-icon-s-order',
-                    path: '/sys/dicts',
-                    children: []
+                    "id": 6,
+                    "title": "数字字典",
+                    "icon": "el-icon-s-order",
+                    "path": "/sys/dicts",
+                    "name": "sys:dict:list",
+                    "component": "sys/Dict",
+                    "children": []
                 }
             ]
         }
