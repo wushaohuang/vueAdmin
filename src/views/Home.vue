@@ -24,7 +24,6 @@
         </div>
       </el-header>
       <el-main>
-
         <div style="margin: 0 15px;">
           <router-view></router-view>
         </div>
