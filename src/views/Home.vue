@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-aside width="200px">
-      <div>菜单栏</div>
+      <SideMenu></SideMenu>
     </el-aside>
     <el-container>
       <el-header style="height: 55px;">
@@ -34,14 +34,18 @@
 </template>
 
 <script>
+import SideMenu from "@/views/inc/SideMenu";
 export default {
   name: "Home.vue",
+  components: {
+    SideMenu
+  },
   data() {
     return {
       userInfo: {
         id: '-1',
         username: 'admin',
-        avatar: 'file:///C:/Users/sesa680303/Desktop/ShaoHang-removebg.png'
+        avatar: 'http://www.gaoimg.com/uploads/allimg/170205/1-1F20512051Sa.jpg'
       }
     }
   }

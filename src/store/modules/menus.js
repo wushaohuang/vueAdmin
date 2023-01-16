@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default ({
     state: {
         menuList: [],
-        permList: []
+        permList: [],
+        hasRoute: false
     },
     mutations: {
         setMenuList(state, menus) {
@@ -14,6 +15,9 @@ export default ({
         },
         setPermList(state, perms) {
             state.permList = perms
+        },
+        changeRouteStatus(state, hasRoute) {
+            state.hasRoute = hasRoute
         }
     },
     actions: {
