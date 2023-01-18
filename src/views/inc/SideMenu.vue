@@ -21,7 +21,7 @@
         <span>{{ menu.title }}</span>
       </template>
       <router-link :to="item.path" v-for="item in menu.children">
-        <el-menu-item :index="item.name">
+        <el-menu-item :index="item.name" @click="selectMenu(item)">
           <template slot="title">
             <i :class="item.icon"></i>
             <span slot="title">{{ item.title }}</span>
@@ -41,10 +41,20 @@ export default {
   },
   computed: {
     menuList: {
+      // get是属性变化而获取，当主动改变值时，需要set才行
       get()
       {
         return this.$store.state.menus.menuList
+      },
+      set(val)
+      {
+        this.$store.state.menus.menuList = val
       }
+    }
+  },
+  methods:{
+    selectMenu(item){
+      this.$store.commit("addTabs", item)
     }
   }
 }
@@ -53,5 +63,6 @@ export default {
 <style scoped>
 .el-menu-vertical-demo {
   height: 100%;
+  width: 200px !important;
 }
 </style>

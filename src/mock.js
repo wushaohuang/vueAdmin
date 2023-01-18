@@ -1,23 +1,27 @@
-
 const Mock = require('mockjs')
 
 const Random = Mock.Random
+
 let Result = {
     code: 200,
     msg: '操作成功',
     data: null
 }
-
-Mock.mock(RegExp('/login*'),'get', (config) => {
-    console.log("mock---------------------------------------login")
+// 因为mock不认识/login?username=xxx，所以用了正则表达式
+Mock.mock(RegExp('/login*'), 'post', (config) => {
     return Result
 })
 
-Mock.mock('/captcha','get',() => {
+Mock.mock('/captcha', 'get', () => {
     Result.data = {
         token: Random.string(32),
         captchaImg: Random.dataImage("120x40","1111")
     }
+    return Result
+})
+
+Mock.mock('/logout', 'post', () => {
+    console.log(Result)
     return Result
 })
 

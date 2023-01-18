@@ -24,7 +24,8 @@
         </div>
       </el-header>
       <el-main>
-        <div style="margin: 0 15px;">
+        <div>
+          <Tabs></Tabs>
           <router-view></router-view>
         </div>
       </el-main>
@@ -35,18 +36,36 @@
 
 <script>
 import SideMenu from "@/views/inc/SideMenu";
+import Tabs from "@/views/inc/Tabs";
 export default {
   name: "Home.vue",
   components: {
-    SideMenu
+    SideMenu,
+    Tabs
   },
   data() {
     return {
       userInfo: {
-        id: '-1',
+        id: '',
         username: 'admin',
         avatar: 'http://www.gaoimg.com/uploads/allimg/170205/1-1F20512051Sa.jpg'
       }
+    }
+  },
+  methods: {
+    getUserInfo() {
+      this.$axios.get("/sys/userInfo").then(res => {
+        this.userInfo = res.data.data
+      })
+    },
+    logout() {
+      this.$axios.post("/logout").then(res => {
+        localStorage.clear()
+        sessionStorage.clear()
+
+        this.$store.commit("resetState")
+        this.$router.push("/login")
+      })
     }
   }
 }
@@ -87,6 +106,7 @@ export default {
 .el-main {
   color: #333;
   padding: 0;
+  margin: 0 !important;
 }
 
 .el-link {
