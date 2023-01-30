@@ -26,7 +26,10 @@
       <el-main>
         <div>
           <Tabs></Tabs>
-          <router-view></router-view>
+          <div style="margin: 0 15px">
+            <router-view></router-view>
+          </div>
+
         </div>
       </el-main>
     </el-container>
@@ -112,5 +115,4 @@ export default {
 .el-link {
   text-decoration: none;
 }
-
 </style>

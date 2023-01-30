@@ -92,7 +92,6 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$axios.post('/login?' + qs.stringify(this.loginForm)).then(res => {
-            console.log(res.data)
             const jwt = res.headers['authorization']
             this.$store.commit("SET_TOKEN", jwt)
             this.$router.push("/index")

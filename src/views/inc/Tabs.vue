@@ -67,7 +67,6 @@ export default {
       }
       this.editableTabsValue = activeName;
       this.editableTabs = tabs.filter(tab => tab.name !== targetName);
-      console.log(activeName)
       this.$router.push({name: activeName})
     },
     clickTab (target) {
