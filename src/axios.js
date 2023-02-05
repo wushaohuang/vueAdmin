@@ -1,8 +1,9 @@
 import axios from "axios";
 import router from "./router";
-import Element from "element-ui";
+import Element from "element-ui"
 
-axios.defaults.baseURL = "http://localhost:8080"
+axios.defaults.baseURL = "http://localhost:8081"
+
 const request = axios.create({
     timeout: 5000,
     headers: {
@@ -36,6 +37,7 @@ request.interceptors.response.use(
         if (error.response.status === 401) {
             router.push("/login")
         }
+
         Element.Message.error(error.message, {duration: 2 * 1000})
         return Promise.reject(error)
     }

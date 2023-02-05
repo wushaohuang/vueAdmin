@@ -84,7 +84,7 @@ export default {
           {min: 5, max:5, message: '验证码为5个字符', trigger: 'blur'}
         ]
       },
-      captchaImg: ''
+      captchaImg: null
     }
   },
   methods: {
@@ -95,12 +95,9 @@ export default {
             const jwt = res.headers['authorization']
             this.$store.commit("SET_TOKEN", jwt)
             this.$router.push("/index")
-          }).catch(error => {
-            this.getCaptcha();
-            console.log('error submit!!');
           })
+
         } else {
-          this.getCaptcha();
           console.log('error submit!');
           return false;
         }
@@ -111,8 +108,8 @@ export default {
     },
     getCaptcha() {
       this.$axios.get('/captcha').then(res => {
-        this.loginForm.token = res.data.token
-        this.captchaImg = res.data.data.captchaImg
+        this.loginForm.token = res.data.data.token
+        this.captchaImg = res.data.data.base64Img
         this.loginForm.code = ''
       })
     }
